@@ -6,9 +6,14 @@
   "repository": "git@github.com:samarpanda/api-demo.git",
   "author": "Samar Panda <er.samarpanda@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "mongoose": "^4.9.2"
+    "mongoose": "^4.9.2",
+    "nodemon": "^1.11.0"
   }
 }
