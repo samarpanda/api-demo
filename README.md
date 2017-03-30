@@ -7,6 +7,11 @@ Demo node api using express, mongoose & mongoDB
 1. Create a local directory `mkdir -p data/db` in `api-demo`
 1. Start mongodb from local directory - `mongod --dbpath data/db`
 
+### Quick commands
+
+1. Start application watch mode `npm run dev`
+1. Start application `npm start`
+
 ### Postman api demo collection
 
 [Endpoint collection link](https://www.getpostman.com/collections/a82ec0d062ee11b1140c)
