@@ -7,10 +7,10 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 mongoose.connection.on('error', (err) => {
-  console.log('Mongoose default connection error:' + err);
+  console.log('Mongoose connection error:' + err);
 })
 mongoose.connection.on('disconnected', () => {
-  console.log('Mongoose default connection disconnected');
+  console.log('Mongoose connection disconnected');
 })
 mongoose.connection.on('connected', () => {
   console.log('Mongoose connected');
@@ -18,7 +18,7 @@ mongoose.connection.on('connected', () => {
 
 process.on('SIGINT', function(){
   mongoose.connection.close(() => {
-    console.log('Mongoose default connection disconnected through app termination');
+    console.log('Mongoose connection disconnected through app termination');
     process.exit(0);
   })
 })

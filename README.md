@@ -1,6 +1,12 @@
 ## API DEMO
 Demo node api using express, mongoose & mongoDB
 
+### MongoDB
+
+1. Install [mongoDB](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
+1. Create a local directory `mkdir -p data/db` in `api-demo`
+1. Start mongodb from local directory - `mongod --dbpath data/db`
+
 ### Postman api demo collection
 
 [Endpoint collection link](https://www.getpostman.com/collections/a82ec0d062ee11b1140c)
@@ -17,8 +23,8 @@ curl -X GET -H "Cache-Control: no-cache" "http://localhost:8080/api/contacts"
 
 ```text
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-    "name": "sp6",
-    "email": "sp6@me.com"
+    "name": "name",
+    "email": "email@me.com"
 }' "http://localhost:8080/api/contact"
 ```
 
@@ -30,7 +36,7 @@ curl -X GET -H "Content-Type: application/json" -H "Cache-Control: no-cache" "ht
 4. Update contact by Id
 ```text
 curl -X PUT -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
-  "name": "sample name"
+  "name": "name"
 }' "http://localhost:8080/api/contact/{ID}"
 ```
 
