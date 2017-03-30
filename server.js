@@ -2,6 +2,7 @@ var express = require('express')
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var config = require('config')
 
 // User native Promises
 mongoose.Promise = global.Promise;
@@ -23,7 +24,7 @@ process.on('SIGINT', function(){
   })
 })
 
-mongoose.connect('mongodb://localhost/'+'api-demo')
+mongoose.connect(`${config.get('mongo_url')}${config.get('mongo_dbs.proj1')}`)
 .then(() => {
   console.log('Connected')
 })
@@ -42,6 +43,6 @@ router.get('/', function(req, res){
 
 app.use('/api', require('./app/controllers/ContactController'));
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || config.get('port');
 app.listen(port)
 console.log('Server started at ', port);
