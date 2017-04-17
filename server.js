@@ -1,36 +1,15 @@
 var express = require('express')
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var config = require('config')
+var config = require('config');
 
-// User native Promises
-mongoose.Promise = global.Promise;
+var bunyan = require('bunyan');
+global.log = bunyan.createLogger({name: "api-demo"});
 
-mongoose.connection.on('error', (err) => {
-  console.log('Mongoose connection error:' + err);
-})
-mongoose.connection.on('disconnected', () => {
-  console.log('Mongoose connection disconnected');
-})
-mongoose.connection.on('connected', () => {
-  console.log('Mongoose connected');
-});
 
-process.on('SIGINT', function(){
-  mongoose.connection.close(() => {
-    console.log('Mongoose connection disconnected through app termination');
-    process.exit(0);
-  })
-})
-
-mongoose.connect(`${config.get('mongo_url')}${config.get('mongo_dbs.proj1')}`)
-.then(() => {
-  console.log('Connected')
-})
-.catch((err) => {
-  console.log(err.message);
-});
+// Connect Db
+var initDb = require('./app/db/init.js');
+initDb();
 
 app.use(bodyParser.urlencoded({ extended: true}))
 app.use(bodyParser.json());
