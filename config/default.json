@@ -3,5 +3,6 @@
   "mongo_dbs": {
     "proj1":"api-demo"
   },
+  "secret": "api-demo-secret",
   "port": 8080
 }

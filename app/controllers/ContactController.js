@@ -1,5 +1,4 @@
 var express = require('express');
-var api = express.Router();
 
 var Contact = require('../models/ContactModel');
 var Response = require('../utils/response');
